@@ -109,15 +109,15 @@ vm_protect( task, address, sizeof( uint32_t ), 0, VM_PROT_READ | VM_PROT_WRITE |
 For the kernel to allow us to use task_for_pid, we need to give our application the SecTaskAccess permission. To do this, create a file called Info.plist with the following content:
 ```
 <?xml version="1.0" encoding="UTF-8"?>  
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
-    <plist version="1.0">  
-    <dict>  
-        <key>SecTaskAccess</key>
-        <array>
-            <string>allowed</string>
-        </array>
-    </dict>  
-    </plist>  
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">  
+<plist version="1.0">  
+<dict>  
+    <key>SecTaskAccess</key>
+    <array>
+        <string>allowed</string>
+    </array>
+</dict>  
+</plist>  
 ```
 
 When compiling, use `-sectcreate` to create a section for the plist: 
